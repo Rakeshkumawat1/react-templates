@@ -36,3 +36,106 @@
     transform: rotate(360deg);
   }
 }
+
+/* Licence card title style */
+.content {
+  display: flex;
+  left: 0;
+}
+
+.content h5{
+  color: #fff;
+  position: absolute;
+  margin-top: 10px;
+  letter-spacing: 4px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.content h5:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #757575;
+}
+
+.content h5:nth-child(2) {
+  color: #757575;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+
+/* @keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+} */
+/* .forwordTextAnimation {
+  display: flex,
+} */
+
+.forwordTextAnimation span {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(4px);
+}
+
+.forwordTextAnimation span:nth-child(1) {
+  animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.forwordTextAnimation span:nth-child(2) {
+  animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.forwordTextAnimation span:nth-child(3) {
+  animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.forwordTextAnimation span:nth-child(4) {
+  animation: fade-in 0.8s 0.7s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.forwordTextAnimation span:nth-child(5) {
+  animation: fade-in 0.8s 0.9s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.forwordTextAnimation span:nth-child(6) {
+  animation: fade-in 0.8s 1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
