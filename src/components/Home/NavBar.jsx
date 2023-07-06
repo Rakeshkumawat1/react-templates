@@ -26,21 +26,21 @@ const AppBar = styled(MuiAppBar, {
     color: 'inherit',
     backdropFilter: 'blur(6px)',
     // boxShadow: 'none',
-    ...(open && {
+    ...(open ? {
         marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
-    }),
-    ...(!open && {
+    } : 
+    {
         left: '81px',
         width: `calc(100% - 81px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
-        }),
+        } ),
     })
 }));
 export default function NavBar({ open }) {
