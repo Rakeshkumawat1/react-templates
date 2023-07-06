@@ -35,7 +35,10 @@ export default function Home() {
         border: '1px dashed rgba(0, 0, 0, 0.12)',
         width: '30px',
         height: '30px',
-        backgroundColor: '#f5f6f7'
+        backgroundColor: '#f5f6f7',
+        '&:hover': {
+          backgroundColor: '#f5f6f7'
+        }
       }}>
         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
       </IconButton>

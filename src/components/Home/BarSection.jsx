@@ -77,7 +77,7 @@ export default function BarSection({ open }) {
 
       {/* Side bar list section. */}
       <List>
-        {['Home', 'Cards', 'Users', 'Analytics'].map((text, index) => (
+        {['Home', 'Cards', 'Users', 'Analytics', 'Templates'].map((text, index) => (
           <ListItem key={text} disablePadding sx={{ display: 'block' }}>
             <ListItemButton
               sx={{
