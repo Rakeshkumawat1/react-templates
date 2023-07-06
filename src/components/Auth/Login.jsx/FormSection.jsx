@@ -1,13 +1,10 @@
 import React from 'react';
 import {
-    Button, Box, Typography, InputAdornment, TextField,
-    FormControl, InputLabel, OutlinedInput, IconButton, Divider
+    Button, Box, Typography, InputAdornment, TextField, IconButton, Divider
 } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Visibility, /* VisibilityOff */ } from '@mui/icons-material';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import LockIcon from '@mui/icons-material/Lock';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import InfoIcon from '@mui/icons-material/Info';
@@ -103,7 +100,7 @@ export default function FormSection() {
                                 background: '#fff'
                             }
                         }}>
-                            <RemoveRedEyeIcon />
+                            <Visibility />
                         </IconButton>
                         </InputAdornment>,
                         sx: {
