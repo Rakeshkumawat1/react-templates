@@ -12,8 +12,10 @@ export default function Login() {
             display: 'flex',
             height: '100vh',
         }}>
+            {/* Left side banner section. */}
             <WelcomeImageSection />
 
+            {/* Login form right section. */}
             <FormSection />
         </Box>
     )
