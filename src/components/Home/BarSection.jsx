@@ -1,16 +1,15 @@
 import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import {
-  Box, Toolbar, List, CssBaseline, Typography, Divider, IconButton
+  Box, Toolbar, List, CssBaseline, Typography, IconButton
   , ListItem, ListItemButton, ListItemIcon, ListItemText,
 } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { imgUrl } from '../../config';
 
 import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
 import SearchIcon from '@mui/icons-material/Search';
@@ -34,9 +33,9 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
-  width: `calc(${theme.spacing(7)} + 1px)`,
+  width: `calc(${theme.spacing(9)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: `calc(${theme.spacing(10)} + 1px)`,
   },
   borderRight: '1px dashed rgba(0, 0, 0, 0.12)',
 });
@@ -44,8 +43,8 @@ const closedMixin = (theme) => ({
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
+  justifyContent: 'flex-start',
+  padding: theme.spacing(0, 2.5),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
@@ -67,9 +66,13 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
   ...(!open && {
-      left : '65px',
-      width: `calc(100% - 65px)`,
-    })
+    left: '81px',
+    width: `calc(100% - 81px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  })
 }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -104,33 +107,25 @@ export default function BarSection() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{
-        // "&.MuiAppBar-root" : {
-        //   left : open ? '' :'65px'
-        // }
+      <IconButton onClick={()=> open ? handleDrawerClose() : handleDrawerOpen()} sx={{
+        position: 'absolute',
+        top: '18px',
+        left: open ? '205px' : '65px',
+        zIndex: 99999,
+        border: '1px dashed rgba(0, 0, 0, 0.12)',
+        width: '30px',
+        height: '30px',
+        backgroundColor: '#f5f6f7'
       }}>
+        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+      </IconButton>
+      <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-          // sx={{
-          //   marginRight: 5,
-          //   ...(open && { display: 'none' }),
-          // }}
           >
             <SearchIcon />
           </IconButton>
@@ -151,13 +146,11 @@ export default function BarSection() {
           </Typography>
         </Toolbar>
       </AppBar>
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+          <img src={imgUrl?.navLogo} alt="" style={{ width: '40px', height: '40px' }} />
         </DrawerHeader>
-        {/* <Divider /> */}
         <List>
           {['Home', 'Cards', 'Users', 'Analytics'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
@@ -165,8 +158,8 @@ export default function BarSection() {
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
-                  flexDirection: open ? 'row': 'column',
-                  px: 2.5,
+                  flexDirection: open ? 'row' : 'column',
+                  px: 3.5,
                 }}
               >
                 <ListItemIcon
@@ -178,12 +171,11 @@ export default function BarSection() {
                 >
                   {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} primaryTypographyProps={{fontSize: open ? '1rem' : '12px'}} />
+                <ListItemText primary={text} primaryTypographyProps={{ fontSize: open ? '1rem' : '12px' }} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
-        <Divider />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* <DrawerHeader /> */}
