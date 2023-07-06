@@ -10,10 +10,12 @@ export default function Login() {
         <Box sx={{
             width: '100%',
             display: 'flex',
-            height: '100vh'
+            height: '100vh',
         }}>
+            {/* Left side banner section. */}
             <WelcomeImageSection />
 
+            {/* Login form right section. */}
             <FormSection />
         </Box>
     )

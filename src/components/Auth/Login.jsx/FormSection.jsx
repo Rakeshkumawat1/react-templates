@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
     Button, Box, Typography, InputAdornment, TextField,
-    FormControl, InputLabel, OutlinedInput, IconButton, Divider
+    IconButton, Divider, useTheme
 } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Visibility, /* VisibilityOff */ } from '@mui/icons-material';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import LockIcon from '@mui/icons-material/Lock';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import InfoIcon from '@mui/icons-material/Info';
+import { ColorModeContext } from '../../../context/ThemeContext';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 export default function FormSection() {
+    const theme = useTheme();
+    const colorMode = useContext(ColorModeContext);
+
+    useEffect(() => {
+        console.log(colorMode)
+    }, [colorMode])
+
     return (
         <Box sx={{
             width: '100%',
-            background: '#fff',
+            backgroundColor: "background.default",
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
@@ -25,15 +33,23 @@ export default function FormSection() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                // p: '100px',
                 flexDirection: 'column',
                 gap: '10px'
             }}>
 
+                <IconButton sx={{ 
+                    position: 'absolute',
+                    top: '10px',
+                    right: '30px'
+                 }} onClick={colorMode.toggleColorMode} color="#fff">
+                    {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
+
                 <Typography sx={{
                     fontSize: '28px',
                     lineHeight: '25px',
-                    fontWeight: 800
+                    fontWeight: 800,
+                    color: 'text.primary'
                 }} >
                     Welcome back!
                 </Typography>
@@ -49,18 +65,18 @@ export default function FormSection() {
                 <Typography sx={{
                     backgroundColor: 'rgb(202, 253, 245)',
                     p: '20px 10px 20px 10px',
-                    display: 'inline-flex', 
+                    display: 'inline-flex',
                     gap: '10px',
                     borderRadius: '15px',
                     mt: '10px'
                 }}>
-                    <InfoIcon sx={{color: '#00B8D9'}}/>
+                    <InfoIcon sx={{ color: '#00B8D9' }} />
                     Use email : enjoy@you.com / password : enjoy
                 </Typography>
 
                 <TextField
                     id="outlined-start-adornment"
-                    sx={{ m: 1, width: '40ch', bgcolor: '#F4F6F8', borderRadius: '15px' }}
+                    sx={{ m: 1, width: '40ch', bgcolor: '#F4F6F8', borderRadius: '15px', }}
                     placeholder={"you@example.com"}
                     InputProps={{
                         startAdornment: <InputAdornment position="start"><IconButton sx={{
@@ -75,7 +91,10 @@ export default function FormSection() {
                         </IconButton>
                         </InputAdornment>,
                         sx: {
-                            "& fieldset": { border: 'none', borderRadius: "15px", },
+                            "& fieldset": { border: 'none', borderRadius: "15px",},
+                            "& input": {
+                                color: '#454545'
+                            }
                         }
                     }}
                 />
@@ -90,7 +109,8 @@ export default function FormSection() {
                             borderRadius: '10px',
                             '&:hover': {
                                 background: '#fff'
-                            }
+                            },
+                            
                         }}>
                             <LockIcon />
                         </IconButton>
@@ -103,11 +123,14 @@ export default function FormSection() {
                                 background: '#fff'
                             }
                         }}>
-                            <RemoveRedEyeIcon />
+                            <Visibility />
                         </IconButton>
                         </InputAdornment>,
                         sx: {
                             "& fieldset": { border: 'none', borderRadius: "15px", },
+                            "& input": {
+                                color: '#454545'
+                            }
                         }
                     }}
                 />
