@@ -10,7 +10,7 @@ export default function Login() {
         <Box sx={{
             width: '100%',
             display: 'flex',
-            height: '100vh'
+            height: '100vh',
         }}>
             <WelcomeImageSection />
 
