@@ -7,6 +7,7 @@ import MuiAppBar from '@mui/material/AppBar';
 import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 // Define drawer width length.
 const drawerWidth = 220;
@@ -104,6 +105,11 @@ export default function NavBar({ open }) {
                     mr: '10px',
                     gap: '20px'
                 }}>
+                    {/* Settings icon */}
+                    <IconButton>
+                        <SettingsIcon />
+                    </IconButton>
+
                     <Avatar  src="/static/images/avatar/1.jpg" sx={{
                         width: '35px',
                         height: '35px',
