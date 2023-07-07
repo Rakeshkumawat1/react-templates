@@ -15,18 +15,14 @@ function App() {
     toggleColorMode: () => {
       setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
     },
-  }),
-    [],
-  );
+  }), []);
 
   const theme = useMemo(() =>
     createTheme({
       palette: {
         mode,
       },
-    }),
-    [mode],
-  );
+    }), [mode]);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
