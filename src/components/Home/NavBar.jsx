@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Toolbar, Typography, IconButton, Box, Avatar, Badge } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
+import DialogModal from '../../layouts/Dialog'
 
 // Icons
 import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
@@ -45,93 +46,114 @@ const AppBar = styled(MuiAppBar, {
             }),
         })
 }));
+
 export default function NavBar({ open }) {
     return (
-        <AppBar position="fixed" open={open}>
-            <Toolbar>
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
-                    sx={{
-                        ml: '15px',
-                        color: '#757575'
-                    }}
-                >
-                    <SearchIcon />
-                </IconButton>
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    ml: '5px',
-                    backgroundColor: 'rgba(145, 158, 171, 0.16)',
-                    p: '0 10px 0 10px',
-                    borderRadius: '20px',
-                    color: '#757575'
-                }}>
+        <>
+            <DialogModal
+                open={open}
+                title={"Hello"}
+                content={"Test"}
+                transition={true}
+                dialogRootSx={{
+                    position: "fixed",
+                    top: 0,
+                    right: 0,
+                    m: 0,
+                    width: "300px",
+                    height: "calc(100vh)"
+                }}
+                fullScreen={true}
+            />
+            <AppBar position="fixed" open={open}>
+                <Toolbar>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         edge="start"
-                        disableElevation
-                        disableRipple
                         sx={{
-                            backgroundColor: 'transparent',
-                            '&:hover': {
-                                backgroundColor: 'transparent'
-                            }
+                            ml: '15px',
+                            color: '#757575'
                         }}
                     >
-                        <KeyboardCommandKeyIcon sx={{
-                            height: '14px',
-                            width: '14px'
-                        }} />
+                        <SearchIcon />
                     </IconButton>
-                    <Typography noWrap component="div" sx={{
-                        ml: '-5px',
-                        fontSize: '14px',
-                        fontWeight: 500
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        ml: '5px',
+                        backgroundColor: 'rgba(145, 158, 171, 0.16)',
+                        p: '0 10px 0 10px',
+                        borderRadius: '20px',
+                        color: '#757575'
                     }}>
-                        K
-                    </Typography>
-                </Box>
-
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    flexGrow: 1,
-                    mr: '10px',
-                    gap: '20px'
-                }}>
-                    {/* Settings icon */}
-                    <IconButton>
-                        <SettingsIcon />
-                    </IconButton>
-
-                    <Avatar  src="/static/images/avatar/1.jpg" sx={{
-                        width: '35px',
-                        height: '35px',
-                    }} />
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            disableElevation
+                            disableRipple
+                            sx={{
+                                backgroundColor: 'transparent',
+                                '&:hover': {
+                                    backgroundColor: 'transparent'
+                                }
+                            }}
+                        >
+                            <KeyboardCommandKeyIcon sx={{
+                                height: '14px',
+                                width: '14px'
+                            }} />
+                        </IconButton>
+                        <Typography noWrap component="div" sx={{
+                            ml: '-5px',
+                            fontSize: '14px',
+                            fontWeight: 500
+                        }}>
+                            K
+                        </Typography>
+                    </Box>
 
                     <Box sx={{
                         display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
+                        justifyContent: 'flex-end',
+                        flexGrow: 1,
+                        mr: '10px',
+                        gap: '20px'
                     }}>
-                        <Badge badgeContent={4} color="primary" >
-                            <NotificationsActiveIcon color="action" />
-                        </Badge>
+                        {/* Settings icon */}
+                        <IconButton>
+                            <SettingsIcon />
+                        </IconButton>
+
+                        {/* Users list section */}
+                        <Avatar src="/static/images/avatar/1.jpg" sx={{
+                            width: '35px',
+                            height: '35px',
+                        }} />
+
+                        {/* Notification section */}
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <Badge badgeContent={4} color="primary" >
+                                <NotificationsActiveIcon color="action" />
+                            </Badge>
+                        </Box>
+
+
+                        {/* Profile section */}
+                        <Avatar alt="Yemy Sharp" src="/static/images/avatar/1.jpg" sx={{
+                            width: '35px',
+                            height: '35px',
+                        }} />
                     </Box>
-
-
-                    <Avatar alt="Yemy Sharp" src="/static/images/avatar/1.jpg" sx={{
-                        width: '35px',
-                        height: '35px',
-                    }} />
-                </Box>
-            </Toolbar>
-        </AppBar>
+                </Toolbar>
+            </AppBar>
+        </>
     )
 }

@@ -31,7 +31,7 @@ export default function Home() {
         position: 'absolute',
         top: '18px',
         left: open ? '205px' : '65px',
-        zIndex: 99999,
+        zIndex: 1999,
         border: '1px dashed rgba(0, 0, 0, 0.12)',
         width: '30px',
         height: '30px',
