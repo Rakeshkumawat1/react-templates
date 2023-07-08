@@ -78,7 +78,7 @@ export default function BarSection({ open }) {
       {/* Side bar list section. */}
       <List>
         {['Home', 'Cards', 'Users', 'Analytics', 'Templates'].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+          <ListItem key={text} disablePadding sx={{ display: 'block', }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -92,11 +92,12 @@ export default function BarSection({ open }) {
                   minWidth: 0,
                   mr: open ? 2 : 'auto',
                   justifyContent: 'center',
+                  color: '#757575'
                 }}
               >
                 {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} primaryTypographyProps={{ fontSize: open ? '1rem' : '12px' }} />
+              <ListItemText primary={text} primaryTypographyProps={{ fontSize: open ? '1rem' : '12px', color: '#757575' }} />
             </ListItemButton>
           </ListItem>
         ))}

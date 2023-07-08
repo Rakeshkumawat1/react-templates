@@ -35,10 +35,10 @@ export default function Home() {
         border: '1px dashed rgba(0, 0, 0, 0.12)',
         width: '30px',
         height: '30px',
-        backgroundColor: '#f5f6f7',
+        backgroundColor: theme.palette.mode === 'light' ? '#f5f6f7' : '#757575',
         color: theme.palette.mode === 'light' ? "" : 'background.default',
         '&:hover': {
-          backgroundColor: '#f5f6f7'
+          backgroundColor: theme.palette.mode === 'light' ? '#f5f6f7' : '#757575',
         }
       }}>
         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
