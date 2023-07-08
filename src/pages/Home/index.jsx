@@ -41,7 +41,7 @@ export default function Home() {
           backgroundColor: theme.palette.mode === 'light' ? '#f5f6f7' : '#757575',
         }
       }}>
-        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
       </IconButton>
       {/* Nav bar section. */}
       <NavBar open={open} />
