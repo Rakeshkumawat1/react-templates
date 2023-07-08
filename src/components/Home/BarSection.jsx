@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, } from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, useTheme } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import { imgUrl } from '../../config';
 
@@ -19,7 +19,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-  borderRight: '1px dashed rgba(0, 0, 0, 0.12)',
+  borderRight: theme.palette.mode === 'light'? '1px dashed rgba(0, 0, 0, 0.12)' : '1px dashed #757575',
 });
 
 // Drawer close handler css.
@@ -33,7 +33,7 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(10)} + 1px)`,
   },
-  borderRight: '1px dashed rgba(0, 0, 0, 0.12)',
+  borderRight: theme.palette.mode === 'light'? '1px dashed rgba(0, 0, 0, 0.12)' : '1px dashed #757575',
 });
 
 // Drawer header style hadler
@@ -66,6 +66,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function BarSection({ open }) {
+  const theme = useTheme();
 
   return (
     <Drawer variant="permanent" open={open}>
