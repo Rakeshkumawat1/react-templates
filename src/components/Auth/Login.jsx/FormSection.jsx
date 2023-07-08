@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {
     Button, Box, Typography, InputAdornment, TextField,
     IconButton, Divider, useTheme
@@ -16,10 +16,6 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 export default function FormSection() {
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
-
-    useEffect(() => {
-        console.log(colorMode)
-    }, [colorMode])
 
     return (
         <Box sx={{

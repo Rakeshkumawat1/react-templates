@@ -43,13 +43,18 @@ export default function Home() {
         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
       </IconButton>
       {/* Nav bar section. */}
-      <NavBar open={open}/>
+      <NavBar open={open} />
 
       {/* Side bar section */}
-      <SideBarSection open={open}/>
+      <SideBarSection open={open} />
 
       {/* Main body section. */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{
+        flexGrow: 1,
+        p: 3,
+        // mt: 6,
+        backgroundColor: 'background.default'
+      }}>
         {/* <DrawerHeader /> */}
       </Box>
     </Box>

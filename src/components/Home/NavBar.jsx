@@ -21,7 +21,7 @@ const AppBar = styled(MuiAppBar, {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
     }),
-    backgroundColor: 'rgba(255, 255, 255, 1.8)',// : 'transparent',//'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(255, 255, 255, 1.8)',//rgba(255, 255, 255, 1.8)',// : 'transparent',//'rgba(255, 255, 255, 0.8)',
     backgroundImage: 'none',
     boxSizing: 'border-box',
     flexShrink: 0,

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { IconButton, Box, Typography } from '@mui/material';
+import React, { useState, useContext } from 'react';
+import { IconButton, Box, Typography, useTheme } from '@mui/material';
 import DialogModal from '../../../layouts/Dialog';
 
 // Icon
@@ -9,9 +9,12 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import ContrastIcon from '@mui/icons-material/Contrast';
 import TonalityOutlinedIcon from '@mui/icons-material/TonalityOutlined';
+import { ColorModeContext } from '../../../context/ThemeContext';
 
 export default function NavSettingIcon() {
     const [openSettings, setOpenSettings] = useState(false);
+    const colorMode = useContext(ColorModeContext);
+    const theme = useTheme();
 
     // Funtion for handle setting dialog open and close.
     const handleOpenSettings = () => {
@@ -41,19 +44,19 @@ export default function NavSettingIcon() {
                 gap: '10px'
             }}>
                 <IconButton sx={{
-                    backgroundColor: '#fff',
+                    backgroundColor: 'background.default',
                     width: '120px',
                     height: '70px',
                     borderRadius: '10px'
-                }}>
+                }}  onClick={colorMode.toggleColorMode}>
                     <LightModeIcon />
                 </IconButton>
                 <IconButton sx={{
-                    backgroundColor: '#fff',
+                    backgroundColor: 'background.default',
                     width: '120px',
                     height: '70px',
                     borderRadius: '10px'
-                }}>
+                }}  onClick={colorMode.toggleColorMode}>
                     <Brightness4Icon />
                 </IconButton>
             </Box>
@@ -78,7 +81,7 @@ export default function NavSettingIcon() {
             }}>
                 {Array(6).fill().map(() => (
                     <IconButton sx={{
-                        backgroundColor: '#fff',
+                        backgroundColor: 'background.default',
                         width: '76px',
                         height: '70px',
                         borderRadius: '10px'
@@ -107,7 +110,7 @@ export default function NavSettingIcon() {
                 gap: '10px'
             }}>
                 <IconButton sx={{
-                    backgroundColor: '#fff',
+                    backgroundColor: 'background.default',
                     width: '120px',
                     height: '70px',
                     borderRadius: '10px'
@@ -115,7 +118,7 @@ export default function NavSettingIcon() {
                     <TonalityOutlinedIcon />
                 </IconButton>
                 <IconButton sx={{
-                    backgroundColor: '#fff',
+                    backgroundColor: 'background.default',
                     width: '120px',
                     height: '70px',
                     borderRadius: '10px'
@@ -145,7 +148,7 @@ export default function NavSettingIcon() {
                     m: 0,
                     width: "300px",
                     boxShadow: 'none',
-                    backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
+                    backgroundImage: theme.palette.mode === 'light' ? 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)' : 'background.default',
                 }}
                 fullScreen
                 dividers
