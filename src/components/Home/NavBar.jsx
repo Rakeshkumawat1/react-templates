@@ -2,13 +2,12 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Toolbar, Typography, IconButton, Box, Avatar, Badge } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
-import DialogModal from '../../layouts/Dialog'
 
 // Icons
 import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import SettingsIcon from '@mui/icons-material/Settings';
+import NavSettingIcon from './components/NavSettingIcon';
 
 // Define drawer width length.
 const drawerWidth = 220;
@@ -49,22 +48,6 @@ const AppBar = styled(MuiAppBar, {
 
 export default function NavBar({ open }) {
     return (
-        <>
-            <DialogModal
-                open={open}
-                title={"Hello"}
-                content={"Test"}
-                transition={true}
-                dialogRootSx={{
-                    position: "fixed",
-                    top: 0,
-                    right: 0,
-                    m: 0,
-                    width: "300px",
-                    height: "calc(100vh)"
-                }}
-                fullScreen={true}
-            />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
                     <IconButton
@@ -124,9 +107,7 @@ export default function NavBar({ open }) {
                         gap: '20px'
                     }}>
                         {/* Settings icon */}
-                        <IconButton>
-                            <SettingsIcon />
-                        </IconButton>
+                        <NavSettingIcon />
 
                         {/* Users list section */}
                         <Avatar src="/static/images/avatar/1.jpg" sx={{
@@ -154,6 +135,5 @@ export default function NavBar({ open }) {
                     </Box>
                 </Toolbar>
             </AppBar>
-        </>
     )
 }
