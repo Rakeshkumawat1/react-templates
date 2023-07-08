@@ -36,6 +36,7 @@ export default function Home() {
         width: '30px',
         height: '30px',
         backgroundColor: '#f5f6f7',
+        color: theme.palette.mode === 'light' ? "" : 'background.default',
         '&:hover': {
           backgroundColor: '#f5f6f7'
         }
