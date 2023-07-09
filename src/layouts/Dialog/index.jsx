@@ -36,7 +36,7 @@ function DialogModal(props) {
         },
         fullScreen = false,
         ...other
-    } = props;
+    } = props || {};
 
     return (
         <Dialog

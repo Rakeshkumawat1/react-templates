@@ -8,6 +8,7 @@ import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import NavSettingIcon from './components/NavSettingIcon';
+import UsersListIcon from './components/UsersListIcon';
 
 // Define drawer width length.
 const drawerWidth = 220;
@@ -106,16 +107,13 @@ export default function NavBar({ open }) {
                     justifyContent: 'flex-end',
                     flexGrow: 1,
                     mr: '10px',
-                    gap: '20px'
+                    gap: '15px'
                 }}>
                     {/* Settings icon */}
                     <NavSettingIcon />
 
                     {/* Users list section */}
-                    <Avatar src="/static/images/avatar/1.jpg" sx={{
-                        width: '35px',
-                        height: '35px',
-                    }} />
+                    <UsersListIcon />
 
                     {/* Notification section */}
                     <Box sx={{
