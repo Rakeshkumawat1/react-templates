@@ -31,7 +31,7 @@ export default function Home() {
       <IconButton onClick={() => handleDrawer()} sx={{
         position: 'absolute',
         top: '18px',
-        left: open ? '205px' : '65px',
+        left: open ? '205px' : '73px',
         zIndex: 1999,
         border: '1px dashed rgba(0, 0, 0, 0.12)',
         width: '30px',

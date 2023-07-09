@@ -38,8 +38,8 @@ const AppBar = styled(MuiAppBar, {
         }),
     } :
         {
-            left: '81px',
-            width: `calc(100% - 81px)`,
+            left: '89px',
+            width: `calc(100% - 89px)`,
             transition: theme.transitions.create(['width', 'margin'], {
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.leavingScreen,
