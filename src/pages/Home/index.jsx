@@ -8,6 +8,7 @@ import NavBar from '../../components/Home/NavBar';
 // Icons
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import SliderSection from '../../components/Home/SliderSection';
 
 export default function Home() {
   const theme = useTheme();
@@ -53,10 +54,12 @@ export default function Home() {
       <Box component="main" sx={{
         flexGrow: 1,
         p: 3,
-        // mt: 6,
+        mt: 7.5,
         backgroundColor: 'background.default'
       }}>
-        {/* <DrawerHeader /> */}
+
+        {/* Section 1 for main card and sliders */}
+        <SliderSection />
       </Box>
     </Box>
   )

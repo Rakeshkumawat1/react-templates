@@ -21,6 +21,12 @@ function App() {
     createTheme({
       palette: {
         mode,
+        activeTheme: {
+          color: "rgb(0, 167, 111)",
+          background: "rgba(0, 167, 111, 0.08)",
+          hover: "rgba(0, 167, 111, 0.16)",
+          cardBackground: "rgba(91, 228, 155, 0.2)"
+        }
       },
     }), [mode]);
 
