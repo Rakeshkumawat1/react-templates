@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Menu, } from '@mui/material';
+import { Menu, useTheme, } from '@mui/material';
 
 function CustomMenu(props) {
+    const theme = useTheme();
     const {
         anchorEl,
         open,
@@ -14,6 +15,8 @@ function CustomMenu(props) {
         PaperProps = {
             elevation: 0,
             sx: {
+                backgroundColor: theme.palette.mode === 'light' ? 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)' : '#414141',
+                backgroundImage: theme.palette.mode === 'light' ? 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)' : '#414141',
                 marginTop: .5,
                 overflow: 'visible',
                 filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
@@ -29,7 +32,8 @@ function CustomMenu(props) {
                     right: 15,
                     width: 10,
                     height: 10,
-                    bgcolor: 'background.paper',
+                    backgroundColor: theme.palette.mode === 'light' ? 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)' : '#414141',
+                    backgroundImage: theme.palette.mode === 'light' ? 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)' : '#414141',  //'background.default', #121212
                     transform: 'translateY(-50%) rotate(45deg)',
                     zIndex: 0,
                 },
