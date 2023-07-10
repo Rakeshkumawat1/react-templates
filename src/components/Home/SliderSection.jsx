@@ -67,8 +67,12 @@ export default function SliderSection() {
                     Image
                 </Box>
             </Box>
-            <Box>
-                Image  scroll section
+            <Box sx={{
+                backgroundColor: '#fff',
+                width: '60vh',
+                borderRadius: '10px',
+            }}>
+                
             </Box>
         </Box>
 
