@@ -10,6 +10,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SliderSection from '../../components/Home/SliderSection';
 import GraphSection from '../../components/Home/GraphSection';
+import CardsSection from '../../components/Home/CardsSection';
 
 export default function Home() {
   const theme = useTheme();
@@ -67,6 +68,9 @@ export default function Home() {
 
         {/* Graph render section */}
         <GraphSection />
+
+        {/* Cards section. */}
+        <CardsSection />
       </Box>
     </Box>
   )
