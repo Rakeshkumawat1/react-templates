@@ -15,8 +15,10 @@ export default function SliderSection() {
                 width: 'calc(100% / 1.5)',
                 display: 'flex',
                 flexDirection: 'row',
-                borderRadius: '10px',
+                borderRadius: '16px',
                 backgroundColor: 'activeTheme.cardBackground',
+                transition: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+                boxShadow:'rgba(100, 100, 111, 0.1) 0px 5px 19px 0px',
             }}>
                 <Box sx={{
                     width: 'calc(100% / 1.7)',

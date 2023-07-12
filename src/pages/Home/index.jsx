@@ -9,6 +9,7 @@ import NavBar from '../../components/Home/NavBar';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SliderSection from '../../components/Home/SliderSection';
+import GraphSection from '../../components/Home/GraphSection';
 
 export default function Home() {
   const theme = useTheme();
@@ -29,7 +30,7 @@ export default function Home() {
 
       {/* Side bar open and close icon. */}
       <IconButton onClick={() => handleDrawer()} sx={{
-        position: 'absolute',
+        position: 'fixed',
         top: '18px',
         left: open ? '205px' : '73px',
         zIndex: 1999,
@@ -55,11 +56,17 @@ export default function Home() {
         flexGrow: 1,
         p: 3,
         mt: 7.5,
-        backgroundColor: 'background.default'
+        backgroundColor: 'background.default',
+        gap: '15px',
+        display: 'flex',
+        flexDirection: 'column'
       }}>
 
         {/* Section 1 for main card and sliders */}
         <SliderSection />
+
+        {/* Graph render section */}
+        <GraphSection />
       </Box>
     </Box>
   )
