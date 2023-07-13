@@ -1,8 +1,15 @@
 import React from 'react';
 import { Box, IconButton, Typography, } from '@mui/material';
 import EjectIcon from '@mui/icons-material/Eject';
+import { LineChart } from '@mui/x-charts/LineChart';
 
 export default function NormalTextCards({ tilte, subTitle, counts }) {
+    const sizing = {
+        margin: { right: 2, left: 0, top: 0, bottom: 0 },
+        width: 120,
+        height: 50,
+        legend: { hidden: true },
+    };
     return (
         <Box sx={{
             width: 'calc(100% / 3)',
@@ -43,8 +50,18 @@ export default function NormalTextCards({ tilte, subTitle, counts }) {
                         {subTitle}
                     </Typography>
                 </Box>
-                <Box>
-
+                <Box sx={{
+                    marginRight: '20px'
+                }}>
+                    <LineChart
+                        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                        series={[
+                            {
+                                data: [2, 5.5, 2, 8.5, 1.5, 5],
+                            },
+                        ]}
+                        {...sizing}
+                    />
                 </Box>
 
             </Box>
