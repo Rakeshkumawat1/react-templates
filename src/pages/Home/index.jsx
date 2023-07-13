@@ -8,6 +8,9 @@ import NavBar from '../../components/Home/NavBar';
 // Icons
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import SliderSection from '../../components/Home/SliderSection';
+import GraphSection from '../../components/Home/GraphSection';
+import CardsSection from '../../components/Home/CardsSection';
 
 export default function Home() {
   const theme = useTheme();
@@ -28,26 +31,46 @@ export default function Home() {
 
       {/* Side bar open and close icon. */}
       <IconButton onClick={() => handleDrawer()} sx={{
-        position: 'absolute',
+        position: 'fixed',
         top: '18px',
-        left: open ? '205px' : '65px',
-        zIndex: 99999,
+        left: open ? '205px' : '73px',
+        zIndex: 1999,
         border: '1px dashed rgba(0, 0, 0, 0.12)',
         width: '30px',
         height: '30px',
-        backgroundColor: '#f5f6f7'
+        backgroundColor: theme.palette.mode === 'light' ? '#f5f6f7' : '#757575',
+        color: theme.palette.mode === 'light' ? "" : 'background.default',
+        '&:hover': {
+          backgroundColor: theme.palette.mode === 'light' ? '#f5f6f7' : '#757575',
+        }
       }}>
-        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
       </IconButton>
       {/* Nav bar section. */}
-      <NavBar open={open}/>
+      <NavBar open={open} />
 
       {/* Side bar section */}
-      <SideBarSection open={open}/>
+      <SideBarSection open={open} />
 
       {/* Main body section. */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {/* <DrawerHeader /> */}
+      <Box component="main" sx={{
+        flexGrow: 1,
+        p: 3,
+        mt: 7.5,
+        backgroundColor: 'background.default',
+        gap: '15px',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+
+        {/* Section 1 for main card and sliders */}
+        <SliderSection />
+
+        {/* Graph render section */}
+        <GraphSection />
+
+        {/* Cards section. */}
+        <CardsSection />
       </Box>
     </Box>
   )
