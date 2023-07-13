@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, } from '@mui/material';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import { imgUrl } from '../../config';
 
@@ -19,7 +19,7 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-  borderRight: '1px dashed rgba(0, 0, 0, 0.12)',
+  borderRight: theme.palette.mode === 'light' ? '1px dashed rgba(0, 0, 0, 0.12)' : '1px dashed #757575',
 });
 
 // Drawer close handler css.
@@ -29,11 +29,11 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
-  width: `calc(${theme.spacing(9)} + 1px)`,
+  width: `calc(${theme.spacing(10)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(10)} + 1px)`,
+    width: `calc(${theme.spacing(11)} + 1px)`,
   },
-  borderRight: '1px dashed rgba(0, 0, 0, 0.12)',
+  borderRight: theme.palette.mode === 'light' ? '1px dashed rgba(0, 0, 0, 0.12)' : '1px dashed #757575',
 });
 
 // Drawer header style hadler
@@ -77,14 +77,21 @@ export default function BarSection({ open }) {
 
       {/* Side bar list section. */}
       <List>
-        {['Home', 'Cards', 'Users', 'Analytics'].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+        {['Home', 'Cards', 'Users', 'Analytics', 'Templates'].map((text, index) => (
+          <ListItem key={text} disablePadding sx={{
+            display: 'block',
+            backgroundColor: !index ? 'activeTheme.background' : 'background.default',
+            borderRadius: '10px',
+            '&:hover': {
+              backgroundColor: !index ? 'activeTheme.hover' : 'background.default',
+            }
+          }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
                 flexDirection: open ? 'row' : 'column',
-                px: 3.5,
+                px: 4,
               }}
             >
               <ListItemIcon
@@ -92,11 +99,17 @@ export default function BarSection({ open }) {
                   minWidth: 0,
                   mr: open ? 2 : 'auto',
                   justifyContent: 'center',
+                  color: !index ? 'activeTheme.color' : '#757575',
                 }}
               >
                 {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} primaryTypographyProps={{ fontSize: open ? '1rem' : '12px' }} />
+              <ListItemText
+                primary={text}
+                primaryTypographyProps={{
+                  fontSize: open ? '1rem' : '12px',
+                  color: !index ? 'activeTheme.color' : '#757575',
+                }} />
             </ListItemButton>
           </ListItem>
         ))}
